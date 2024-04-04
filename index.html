@@ -5,16 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pig Dice</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="dice.css" />
     </head>
     <body>
         <main>
             <h1>Pig Dice</h1>
-            <form action="" id="login">
+            <form action="" class="login">
                 <label for="name">What's your name?</label>
                 <input id="name" type="text" min="2" required />
                 <input type="submit" value="Continue to game" />
             </form>
-            <div id="game" class="hidden"></div>
+            <div class="game hidden">
+                <p>
+                    Select whether you want to try increasing your current
+                    score, or if you want to freeze your score and add to total
+                </p>
+                <div class="canvas">
+                    <h2 class="player_name">Player</h2>
+                    <div class="row">
+                        <p>Round: <span class="round">1</span></p>
+                    </div>
+                    <div class="row">
+                        <p>Round score: <span class="round_score">0</span></p>
+                        <p>Match score: <span class="current_score">0</span></p>
+                    </div>
+                    <div id="die"></div>
+                    <div class="row">
+                        <button type="button" class="roll-btn">Roll</button>
+                        <button type="button" class="bank-btn">Bank</button>
+                    </div>
+                </div>
+            </div>
         </main>
     </body>
     <script src="main.js"></script>
