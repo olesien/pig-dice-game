@@ -8,10 +8,24 @@ const bankBtn = document.querySelector(".bank-btn");
 const roundScoreEl = document.querySelector(".round_score");
 const matchScoreEl = document.querySelector(".current_score");
 const roundEl = document.querySelector(".round");
+const winnerEl = document.querySelector(".winner");
+const totalRoundsEl = document.querySelector(".total_rounds");
+const playAgainBtn = document.querySelector(".player-again-btn");
 let round = 1;
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max) + 1;
+};
+
+const checkWinner = (newScore, matchScoreEl) => {
+    if (newScore >= 100) {
+        //We have a winner!!!
+        matchScoreEl.innerText = "";
+        game.classList.add("hidden");
+        winnerEl.classList.remove("hidden");
+        totalRoundsEl.innerText = round;
+        round = 0; //This will be set to 1 right after anyway.
+    }
 };
 
 const rollDie = () => {
@@ -29,10 +43,13 @@ const rollDie = () => {
 };
 
 const nextRound = (score) => {
+    const newScore = Number(matchScoreEl.innerText) + Number(score);
+    matchScoreEl.innerText = newScore;
+    checkWinner(newScore, matchScoreEl);
+    roundScoreEl.innerText = "0";
+
     round++;
     roundEl.innerText = round;
-    matchScoreEl.innerText = Number(matchScoreEl.innerText) + Number(score);
-    roundScoreEl.innerText = "0";
 };
 
 rollDie();
@@ -60,6 +77,11 @@ rollBtn.addEventListener("click", () => {
 
 bankBtn.addEventListener("click", () => {
     return nextRound(Number(roundScoreEl.innerText));
+});
+
+playAgainBtn.addEventListener("click", () => {
+    game.classList.remove("hidden");
+    winnerEl.classList.add("hidden");
 });
 
 //Fake login
