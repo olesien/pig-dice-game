@@ -24,7 +24,6 @@ const getRandomInt = (max) => {
 
 const rollDie = () => {
     const randomNumber = getRandomInt(6);
-    console.log(randomNumber);
     dieEL.innerHTML = ""; //Clear the element
     dieEL.className = ""; //Clear classlist
     dieEL.classList.add("die-" + randomNumber);
@@ -80,6 +79,7 @@ const next = (score) => {
 rollDie();
 
 login.addEventListener("submit", (e) => {
+    //Login/Start game
     e.preventDefault();
     for (let i = 1; i <= playerCount; i++) {
         //Iterate through all players added, and add them to the leaderboards
@@ -159,8 +159,3 @@ addNameBtn.addEventListener("click", () => {
     login.insertBefore(div, addNameBtn);
     login.insertBefore(inputField, addNameBtn);
 });
-
-//Fake login
-// playerEl.innerText = "test";
-// game.classList.remove("hidden");
-// login.classList.add("hidden");
