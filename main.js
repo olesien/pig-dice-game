@@ -16,7 +16,7 @@ const scoresEl = document.querySelector(".scores");
 let playerCount = 1;
 let round = 1;
 let currentPlayer = 1;
-const targetScore = 10;
+const targetScore = 100;
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max) + 1;
