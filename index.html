@@ -11,8 +11,9 @@
         <main>
             <h1>Pig Dice</h1>
             <form action="" class="login">
-                <label for="name">What's your name?</label>
-                <input id="name" type="text" min="2" required />
+                <div id="for-name-1"><label for="name-1">Player #1</label></div>
+                <input id="name-1" type="text" min="2" required />
+                <input id="add-name" type="button" value="+ Add Player" />
                 <input type="submit" value="Continue to game" />
             </form>
             <div class="game hidden">
@@ -20,25 +21,40 @@
                     Select whether you want to try increasing your current
                     score, or if you want to freeze your score and add to total
                 </p>
-                <div class="canvas">
-                    <h2 class="player_name">Player</h2>
-                    <div class="row">
-                        <p>Round: <span class="round">1</span></p>
+                <div class="canvas-container">
+                    <div class="canvas">
+                        <h2 class="player_name">Player</h2>
+                        <div class="row">
+                            <p>Round: <span class="round">1</span></p>
+                        </div>
+                        <div class="row">
+                            <p>
+                                Round score: <span class="round_score">0</span>
+                            </p>
+                            <!-- <p>
+                                Match score:
+                                <span class="current_score">0</span>
+                            </p> -->
+                        </div>
+                        <div id="die"></div>
+                        <div class="row">
+                            <button type="button" class="roll-btn">Roll</button>
+                            <button type="button" class="bank-btn">Bank</button>
+                        </div>
                     </div>
-                    <div class="row">
-                        <p>Round score: <span class="round_score">0</span></p>
-                        <p>Match score: <span class="current_score">0</span></p>
-                    </div>
-                    <div id="die"></div>
-                    <div class="row">
-                        <button type="button" class="roll-btn">Roll</button>
-                        <button type="button" class="bank-btn">Bank</button>
+                    <div class="leaderboard">
+                        <h3>Match scores</h3>
+                        <ul class="scores">
+                            <!-- <li class="score-player-1 active">
+                                Player #1 - <span class="score">10</span>
+                            </li> -->
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="winner hidden">
                 <h3>
-                    You won! It took you
+                    <span class="winner_player">Player</span> won! It took
                     <span class="total_rounds">0</span> rounds this time.
                 </h3>
                 <button type="button" class="player-again-btn">

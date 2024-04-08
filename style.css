@@ -50,19 +50,20 @@ body .hidden {
     font-size: 1.2em;
 }
 
-.login input[type="submit"] {
+.login input[type="submit"],
+.login input[type="button"] {
     background-color: #080c33;
     padding: 1rem;
     font-size: 1.3em;
 }
 
-.login input[type="submit"]:hover {
+.login input[type="submit"]:hover,
+.login input[type="button"]:hover {
     background-color: #0c1355;
     cursor: pointer;
 }
-
 .game {
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
 }
 
@@ -70,7 +71,14 @@ body .hidden {
     padding: 1rem;
 }
 
-.game .canvas {
+.canvas-container {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+}
+
+.game .canvas-container .canvas {
+    flex: 400px;
     border-radius: 5px;
     background-color: rgb(236, 236, 236);
     padding: 1rem;
@@ -81,6 +89,28 @@ body .hidden {
     align-items: center;
 }
 
+.game .canvas-container .leaderboard {
+    flex: 200px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.leaderboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard ul li {
+    padding: 0.6rem;
+    border-radius: 5px;
+}
+
+.leaderboard .active {
+    background-color: #fde7f9;
+}
 button {
     font-size: 1.3em;
     padding: 0.7rem 1.2rem;
